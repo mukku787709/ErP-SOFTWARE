@@ -1,0 +1,6 @@
+import { sqliteTable, text, real, integer, uniqueIndex, check } from 'drizzle-orm/sqlite-core';
+import { sql } from 'drizzle-orm';
+export const records=sqliteTable('records',{id:text('id').primaryKey(),kind:text('kind').notNull(),data:text('data').notNull()});
+export const inventory=sqliteTable('inventory',{id:text('id').primaryKey(),name:text('name').notNull(),sku:text('sku').notNull().unique(),category:text('category').notNull(),unit:text('unit').notNull(),quantity:real('quantity').notNull(),reorder:real('reorder').notNull(),cost:real('cost').notNull(),location:text('location').notNull()},t=>[check('nonnegative_stock',sql`${t.quantity} >= 0`)]);
+export const movements=sqliteTable('movements',{id:text('id').primaryKey(),itemId:text('item_id').notNull().references(()=>inventory.id),quantity:real('quantity').notNull(),note:text('note').notNull(),createdAt:text('created_at').notNull()});
+export const attendance=sqliteTable('attendance',{id:text('id').primaryKey(),workerId:text('worker_id').notNull().references(()=>records.id),date:text('date').notNull(),checkIn:text('check_in'),checkOut:text('check_out'),status:text('status').notNull()},t=>[uniqueIndex('attendance_worker_date').on(t.workerId,t.date)]);

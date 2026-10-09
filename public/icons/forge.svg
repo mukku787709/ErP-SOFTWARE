@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Forge manufacturing app">
+<rect width="512" height="512" rx="108" fill="#39735c"/>
+<path d="M150 354V221l76 41v-58l72 40v-82h42v192Z" fill="#f2f7f3"/>
+<path d="M298 162v-36h42v36Z" fill="#a7d3b8"/>
+<path d="M148 365h202" stroke="#a7d3b8" stroke-width="12" stroke-linecap="round"/>
+<rect x="174" y="292" width="27" height="28" rx="4" fill="#39735c"/>
+<rect x="226" y="292" width="27" height="28" rx="4" fill="#39735c"/>
+<rect x="278" y="292" width="27" height="28" rx="4" fill="#39735c"/>
+</svg>
